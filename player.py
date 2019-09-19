@@ -31,7 +31,7 @@ class Player:
 
         if "community_cards" in game_state:
             for card in game_state["community_cards"]:
-                if ranked and (card["rank"] == card1r and card[rank] == card2r):
+                if ranked and (card["rank"] == card1r and card["rank"] == card2r):
                     bet += 50
 
         if suited and self.goodCards: bet += 200
