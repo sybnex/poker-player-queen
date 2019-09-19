@@ -29,15 +29,14 @@ class Player:
         except:
             print("ERROR ON CARD CALC")
 
-        clubs = 0
-        hearts = 0
-        spades = 0
-        diamonds = 0
+        colors = {"clubs": 0, "hearts": 0, "spades": 0, "diamonds": 0}
         if "community_cards" in game_state:
             for card in game_state["community_cards"]:
-
+                colors[card["suit"]] += 1
                 if ranked and (card["rank"] == card1r and card["rank"] == card2r):
                     bet += 50
+
+        print(str(colors))
 
         if suited and self.goodCards: bet += 200
         elif self.goodCards:          bet += 100
