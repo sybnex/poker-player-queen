@@ -35,7 +35,6 @@ class Player:
                 colors[card["suit"]] += 1
                 if ranked and (card["rank"] == card1r and card["rank"] == card2r):
                     extra += 50
-                if suited
 
         print(str(colors))
 
