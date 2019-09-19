@@ -12,6 +12,7 @@ class Player:
 
         ranked = False
         suited = False
+        raised = False
         try:
             card1r = game_state["players"][pId]["hole_cards"][0]["rank"]
             card2r = game_state["players"][pId]["hole_cards"][1]["rank"]
@@ -34,6 +35,7 @@ class Player:
                 colors[card["suit"]] += 1
                 if ranked and (card["rank"] == card1r and card["rank"] == card2r):
                     extra += 50
+                if suited
 
         print(str(colors))
 
@@ -41,9 +43,10 @@ class Player:
         elif self.goodCards:          extra += 100
         elif ranked or suited:        extra += 50
         elif game_state["current_buy_in"] > 50: return 0
-        #elif game_state["round"] > 10:          return 0
+        elif game_state["round"] > 10:          raised = True
 
-        response = call - bet + game_state["minimum_raise"] + extra
+        if not raised: response = call - bet + game_state["minimum_raise"] + extra
+        else:          response = call - bet
 
         print("RESPONSE: %s" % response)
 
