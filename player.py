@@ -11,19 +11,6 @@ class Player:
 
         response = call - bet + game_state["minimum_raise"]
 
-        players   = len(game_state["players"])
-        highStack = 0
-        pl = -1
-        for player in range(players):
-            if game_state["players"][player]["stack"] > highStack:
-                highStack = game_state["players"][player]["stack"]
-                pl = player
-
-#        if pl == pId: 
-#            time.sleep(5)
-#            if   response < 0: return 1
-#            else:              return response
-
         ranked = False
         suited = False
         try:
