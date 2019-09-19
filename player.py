@@ -10,7 +10,8 @@ class Player:
         players = game_state["players"]
         bet = 0
         for i in range(len(players)):
-            bet += players[i]["bet"]
+            if players[i]["status"] == "active":
+                bet += players[i]["bet"]
         
         call = game_state["current_buy_in"]
 
