@@ -40,8 +40,9 @@ class Player:
         if suited and card1r in rankRange and card2r in rankRange: 
             goodCards = 1
             bet += 100
-        else:
-            return 0
+        elif card1r in rankRange and card2r in rankRange: 
+            goodCards = 1
+            bet += 100
 
         if ranked or suited:
             bet += 50
