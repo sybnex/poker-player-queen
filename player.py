@@ -11,6 +11,20 @@ class Player:
         bet  = game_state["players"][pId]["bet"]
         call = game_state["current_buy_in"]
 
+        response = call - bet + game_state["minimum_raise"]
+
+        players = len(game_state["players"])
+        highStack = game_state["players"][pId]["stack"]
+        pl = -1
+        for player in range(players):
+            if game_state["players"][player]["stack"] > highStack:
+                pl = player
+                
+        if pl == pId: 
+            time.sleep(24)
+            if   response < 0: return 1
+            else:              return response
+
         ranked = False
         suited = False
         try:
@@ -26,9 +40,8 @@ class Player:
         if game_state["round"] == 2 or suited:
             return game_state["players"][pId]["stack"]
 
-        response = call - bet + game_state["minimum_raise"]
-        if response < 0: return 1
-        else:            return response
+        if   response < 0: return 1
+        else:              return response
 
     def showdown(self, game_state):
         pass
