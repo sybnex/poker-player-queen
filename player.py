@@ -22,7 +22,7 @@ class Player:
             if card1r == card2r: ranked = True
             if card1s == card2s: suited = True
 
-            rankRange = ("8","9","J","K","Q","A")
+            rankRange = ("10","J","K","Q","A")
             badRankRange = ("1","2","3","4","5","6","7")
             if card1r in rankRange and card2r in rankRange: 
                 self.goodCards = True
