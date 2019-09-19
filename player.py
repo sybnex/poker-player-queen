@@ -8,7 +8,7 @@ class Player:
         pId  = game_state["in_action"]
         bet  = game_state["players"][pId]["bet"]
         call = game_state["current_buy_in"]
-
+        extra = 0
 
         ranked = False
         suited = False
@@ -33,17 +33,17 @@ class Player:
             for card in game_state["community_cards"]:
                 colors[card["suit"]] += 1
                 if ranked and (card["rank"] == card1r and card["rank"] == card2r):
-                    bet += 50
+                    extra += 50
 
         print(str(colors))
 
-        if suited and self.goodCards: bet += 200
-        elif self.goodCards:          bet += 100
-        elif ranked or suited:        bet += 50
+        if suited and self.goodCards: extra += 200
+        elif self.goodCards:          extra += 100
+        elif ranked or suited:        extra += 50
         elif game_state["current_buy_in"] > 50: return 0
-        elif game_state["round"] > 10:          return 0
+        #elif game_state["round"] > 10:          return 0
 
-        response = call - bet + game_state["minimum_raise"]
+        response = call - bet + game_state["minimum_raise"] + extra
 
         print("RESPONSE: %s" % response)
 
