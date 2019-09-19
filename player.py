@@ -15,7 +15,7 @@ class Player:
         
         call = game_state["current_buy_in"]
 
-        return call - bet + 1
+        return call - bet + game_state["minimum_raise"]
 
     def showdown(self, game_state):
         pass
