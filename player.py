@@ -23,6 +23,7 @@ class Player:
             if card1s == card2s: suited = True
 
             rankRange = ("8","9","J","K","Q","A")
+            badRankRange = ("1","2","3","4","5","6","7")
             if card1r in rankRange and card2r in rankRange: 
                 self.goodCards = True
 
@@ -36,14 +37,14 @@ class Player:
                 if ranked and (card["rank"] == card1r and card["rank"] == card2r):
                     extra += 50
                 if suited and colors[card1s] >= 2: 
-                    extra += 50
+                    extra += 100
 
 
         print(str(colors))
 
         if suited and self.goodCards: extra += 200
         elif self.goodCards:          extra += 100
-        elif ranked or suited:        extra += 50
+        elif ranked:                  extra += 50
         elif game_state["current_buy_in"] > 50: return 0
         elif game_state["round"] > 10:          raised = True
 
