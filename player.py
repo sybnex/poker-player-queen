@@ -1,7 +1,7 @@
 
 class Player:
     VERSION = "Queen Python folding player"
-    goodCards = 0
+    goodCards = False
 
     def betRequest(self, game_state):
 
@@ -28,6 +28,11 @@ class Player:
 
         except:
             print("ERROR ON CARD CALC")
+
+        if "community_cards" in game_state:
+            for card in game_state["community_cards"]:
+                if ranked and (card["rank"] == card1r and card[rank] == card2r):
+                    bet += 50
 
         if suited and self.goodCards: bet += 200
         elif self.goodCards:          bet += 100
