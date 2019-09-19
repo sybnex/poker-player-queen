@@ -1,3 +1,4 @@
+import random
 
 class Player:
     VERSION = "Queen Python folding player"
@@ -35,14 +36,17 @@ class Player:
             if card1r == card2r: ranked = True
             if card1s == card2s: suited = True
         except:
-            print("ERROR ON CALC")
+            print("ERROR ON CARD CALC")
+        else:
+            print(str(game_state["players"][pId]["hole_cards"]))
 
-        if game_state["round"] == 2 or suited:
+        if game_state["round"] == random.randint(2,5) or suited:
             return game_state["players"][pId]["stack"]
 
         if   response < 0: return 1
         else:              return response
 
     def showdown(self, game_state):
+        print(str(game_state))
         pass
 
