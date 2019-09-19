@@ -5,6 +5,9 @@ class Player:
     def bet_request(self, game_state):
         return self.betRequest(game_state)
 
+    def quality(self, cards):
+        pass
+
     def betRequest(self, game_state):
 
         pId  = game_state["in_action"]
@@ -13,7 +16,7 @@ class Player:
 
         response = call - bet + game_state["minimum_raise"]
 
-        players = len(game_state["players"])
+        players   = len(game_state["players"])
         highStack = game_state["players"][pId]["stack"]
         pl = -1
         for player in range(players):
@@ -39,7 +42,7 @@ class Player:
         else:
             print(str(game_state["players"][pId]["hole_cards"]))
 
-        if game_state["round"] == 8 or suited:
+        if game_state["round"] == 8 or ranked:
             return game_state["players"][pId]["stack"]
 
         if   response < 0: return 1
