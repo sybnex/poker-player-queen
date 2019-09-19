@@ -10,12 +10,13 @@ class Player:
         players = game_state["players"]
         bet = 0
         for i in range(len(players)):
-          bet += players[i]["bet"]
-
+            bet += players[i]["bet"]
         
         call = game_state["current_buy_in"]
 
-        return call - bet + game_state["minimum_raise"]
+        response = call - bet + game_state["minimum_raise"]
+        if response < 0: return 0 
+        else:            return response
 
     def showdown(self, game_state):
         pass
