@@ -29,8 +29,13 @@ class Player:
         except:
             print("ERROR ON CARD CALC")
 
+        clubs = 0
+        hearts = 0
+        spades = 0
+        diamonds = 0
         if "community_cards" in game_state:
             for card in game_state["community_cards"]:
+
                 if ranked and (card["rank"] == card1r and card["rank"] == card2r):
                     bet += 50
 
@@ -38,7 +43,7 @@ class Player:
         elif self.goodCards:          bet += 100
         elif ranked or suited:        bet += 50
         elif game_state["current_buy_in"] > 50: return 0
-        #else:                                   return 0
+        elif game_state["round"] > 10:          return 0
 
         print("RESPONSE: %s" % response)
 
