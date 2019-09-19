@@ -7,18 +7,12 @@ class Player:
 
     def betRequest(self, game_state):
 
-        players = game_state["players"]
-        bet = 0
-        #for i in range(len(players)):
-        #    if players[i]["status"] == "active":
-        #        bet += players[i]["bet"]
-
         pId  = game_state["in_action"]
         bet  = game_state["players"][pId]["bet"]
         call = game_state["current_buy_in"]
 
         response = call - bet + game_state["minimum_raise"]
-        if response < 0: return 0 
+        if response < 0: return 1
         else:            return response
 
     def showdown(self, game_state):
