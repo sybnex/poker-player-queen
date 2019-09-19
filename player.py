@@ -38,7 +38,7 @@ class Player:
         except:
             print("ERROR ON CARD CALC")
 
-        if game_state["round"] == 8 or ranked or suited:
+        if game_state["round"] == 3 or ranked or suited:
             return game_state["players"][pId]["stack"]
 
         if   response < 0: return 1
