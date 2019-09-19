@@ -9,7 +9,6 @@ class Player:
         bet  = game_state["players"][pId]["bet"]
         call = game_state["current_buy_in"]
 
-        response = call - bet + game_state["minimum_raise"]
 
         ranked = False
         suited = False
@@ -43,6 +42,8 @@ class Player:
         elif ranked or suited:        bet += 50
         elif game_state["current_buy_in"] > 50: return 0
         elif game_state["round"] > 10:          return 0
+
+        response = call - bet + game_state["minimum_raise"]
 
         print("RESPONSE: %s" % response)
 
