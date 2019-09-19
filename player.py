@@ -35,7 +35,7 @@ class Player:
         elif game_state["current_buy_in"] > 50: return 0
         #else:                                   return 0
 
-        print("RESPONSE: %s", response)
+        print("RESPONSE: %s" % response)
 
         if   response < 0: return 0
         else:              return response
