@@ -20,10 +20,10 @@ class Player:
             if game_state["players"][player]["stack"] > highStack:
                 pl = player
                 
-        if pl == pId: 
-            time.sleep(24)
-            if   response < 0: return 1
-            else:              return response
+        #if pl == pId: 
+        #    time.sleep(24)
+        #    if   response < 0: return 1
+        #    else:              return response
 
         ranked = False
         suited = False
