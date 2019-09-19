@@ -6,8 +6,8 @@ class Player:
 
         player = game_state["players"]
         bet = 0
-        for i in players: 
-            bet += players[i]["bet"]
+        for i in player: 
+            bet += player[i]["bet"]
 
         call = game_state["current_buy_in"]
 
