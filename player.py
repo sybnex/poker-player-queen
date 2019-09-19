@@ -9,11 +9,8 @@ class Player:
 
         players = game_state["players"]
         bet = 0
-        print(len(players))
-        bet += players[0]["bet"]
-        bet += players[1]["bet"]
-        bet += players[2]["bet"]
-        bet += players[3]["bet"]
+        for i in range(len(players)):
+          bet += players[i]["bet"]
 
         
         call = game_state["current_buy_in"]
