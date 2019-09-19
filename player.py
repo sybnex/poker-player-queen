@@ -4,12 +4,12 @@ class Player:
 
     def betRequest(self, game_state):
 
-        player = game_state[players]
+        player = game_state["players"]
         bet = 0
         for i in players: 
-            bet += players[i][bet]
+            bet += players[i]["bet"]
 
-        call = game_state[current_buy_in]
+        call = game_state["current_buy_in"]
 
         return call - bet + 1
 
