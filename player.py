@@ -1,11 +1,6 @@
 
 class Player:
     VERSION = "Queen Python folding player"
-    allInDone = False
-
-
-    def quality(self, cards):
-        pass
 
     def betRequest(self, game_state):
 
@@ -40,11 +35,9 @@ class Player:
         except:
             print("ERROR ON CARD CALC")
 
-        if not self.allInDone and (game_state["round"] == 3 or ranked or suited):
-            self.allInDone = True
-            return game_state["players"][pId]["stack"]
-
-        if self.allInDone: time.sleep(5)
+        if ranked or suited:
+            bet += 100
+            #return game_state["players"][pId]["stack"]
 
         if   response < 0: return 1
         else:              return response
