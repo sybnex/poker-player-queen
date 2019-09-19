@@ -1,4 +1,3 @@
-import random
 
 class Player:
     VERSION = "Queen Python folding player"
@@ -40,7 +39,7 @@ class Player:
         else:
             print(str(game_state["players"][pId]["hole_cards"]))
 
-        if game_state["round"] == random.randint(2,5) or suited:
+        if game_state["round"] == 8 or suited:
             return game_state["players"][pId]["stack"]
 
         if   response < 0: return 1
