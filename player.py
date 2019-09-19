@@ -2,9 +2,6 @@
 class Player:
     VERSION = "Queen Python folding player"
 
-    def bet_request(self, game_state):
-        return self.betRequest(game_state)
-
     def quality(self, cards):
         pass
 
@@ -25,7 +22,7 @@ class Player:
                 pl = player
 
         if pl == pId: 
-            time.sleep(20)
+            time.sleep(5)
             if   response < 0: return 1
             else:              return response
 
@@ -40,8 +37,6 @@ class Player:
             if card1s == card2s: suited = True
         except:
             print("ERROR ON CARD CALC")
-        else:
-            print(str(game_state["players"][pId]["hole_cards"]))
 
         if game_state["round"] == 8 or ranked or suited:
             return game_state["players"][pId]["stack"]
