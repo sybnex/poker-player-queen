@@ -16,13 +16,16 @@ class Player:
 
         response = call - bet + game_state["minimum_raise"]
 
+        
+
         players   = len(game_state["players"])
-        highStack = game_state["players"][pId]["stack"]
+        highStack = 0
+        ownHighStack = game_state["players"][pId]["stack"]
         pl = -1
         for player in range(players):
             if game_state["players"][player]["stack"] > highStack:
                 pl = player
-                
+
         #if pl == pId: 
         #    time.sleep(24)
         #    if   response < 0: return 1
@@ -42,7 +45,7 @@ class Player:
         else:
             print(str(game_state["players"][pId]["hole_cards"]))
 
-        if game_state["round"] == 8 or ranked:
+        if game_state["round"] == 8 or ranked or suited:
             return game_state["players"][pId]["stack"]
 
         if   response < 0: return 1
