@@ -52,6 +52,5 @@ class Player:
         #return game_state["players"][pId]["stack"] # allIn
 
     def showdown(self, game_state):
-        print(str(game_state))
         pass
 
