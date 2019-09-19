@@ -1,6 +1,7 @@
 
 class Player:
     VERSION = "Queen Python folding player"
+    goodCards = 0
 
     def betRequest(self, game_state):
 
@@ -35,8 +36,13 @@ class Player:
         except:
             print("ERROR ON CARD CALC")
 
-        if ranked or suited:
+        rankRange = ("9","J","K","Q","A")
+        if suited and card1r in rankRange and card2r in rankRange: 
+            goodCards = 1
             bet += 100
+
+        if ranked or suited:
+            bet += 50
             #return game_state["players"][pId]["stack"]
 
         if   response < 0: return 1
