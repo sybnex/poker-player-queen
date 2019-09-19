@@ -23,7 +23,8 @@ class Player:
             if card1s == card2s: suited = True
 
             rankRange = ("8","9","J","K","Q","A")
-            if card1r in rankRange and card2r in rankRange: self.goodCards = True
+            if card1r in rankRange and card2r in rankRange: 
+                self.goodCards = True
 
         except:
             print("ERROR ON CARD CALC")
@@ -31,8 +32,10 @@ class Player:
         if suited and self.goodCards: bet += 200
         elif self.goodCards:          bet += 100
         elif ranked or suited:        bet += 50
-        elif game_state["current_buy_in"] > 250: return 0
-        else:                                    return 0
+        elif game_state["current_buy_in"] > 50: return 0
+        #else:                                   return 0
+
+        print("RESPONSE: %s", response)
 
         if   response < 0: return 0
         else:              return response
